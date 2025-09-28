@@ -16,7 +16,7 @@ namespace PETiario.PETiary.Api.Controllers.Walks
         /// </summary>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateAsync([FromBody] WalksRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] WalkRequest request, CancellationToken cancellationToken = default)
         {
             await walkApplication.CreateAsync(request, cancellationToken);
             return Ok();
@@ -27,7 +27,7 @@ namespace PETiario.PETiary.Api.Controllers.Walks
         /// </summary>
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<ActionResult<WalksResponse>> UpdateAsync(int id, [FromBody] WalksRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<WalkResponse>> UpdateAsync(int id, [FromBody] WalkRequest request, CancellationToken cancellationToken = default)
         {
             var updated = await walkApplication.UpdateAsync(id, request, cancellationToken);
             return Ok(updated);
@@ -50,7 +50,7 @@ namespace PETiario.PETiary.Api.Controllers.Walks
         [HttpGet]
         [Authorize]
         [ResponseCache(Duration = 3600)]
-        public async Task<ActionResult<IEnumerable<WalksResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<WalkResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var list = await walkApplication.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -61,7 +61,7 @@ namespace PETiario.PETiary.Api.Controllers.Walks
         /// </summary>
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<WalksResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<WalkResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var walk = await walkApplication.GetByIdAsync(id, cancellationToken);
             return Ok(walk);

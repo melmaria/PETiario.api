@@ -16,7 +16,7 @@ namespace PETiario.PETiary.Api.Controllers.Appointments
         /// </summary>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateAsync([FromBody] AppointmentsRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] AppointmentRequest request, CancellationToken cancellationToken = default)
         {
             await appointmentApplication.CreateAsync(request, cancellationToken);
             return Ok();
@@ -27,7 +27,7 @@ namespace PETiario.PETiary.Api.Controllers.Appointments
         /// </summary>
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<ActionResult<AppointmentsResponse>> UpdateAsync(int id, [FromBody] AppointmentsRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<AppointmentResponse>> UpdateAsync(int id, [FromBody] AppointmentRequest request, CancellationToken cancellationToken = default)
         {
             var updated = await appointmentApplication.UpdateAsync(id, request, cancellationToken);
             return Ok(updated);
@@ -50,7 +50,7 @@ namespace PETiario.PETiary.Api.Controllers.Appointments
         [HttpGet]
         [Authorize]
         [ResponseCache(Duration = 3600)]
-        public async Task<ActionResult<IEnumerable<AppointmentsResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<AppointmentResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var list = await appointmentApplication.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -61,7 +61,7 @@ namespace PETiario.PETiary.Api.Controllers.Appointments
         /// </summary>
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<AppointmentsResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<AppointmentResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var appointment = await appointmentApplication.GetByIdAsync(id, cancellationToken);
             return Ok(appointment);

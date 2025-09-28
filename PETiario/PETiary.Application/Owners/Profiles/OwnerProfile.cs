@@ -11,8 +11,8 @@ namespace PETiario.PETiary.Application.Owners.Profiles
     {
         public OwnerProfile()
         {
-            CreateMap<Owner, OwnersResponse>();
-            CreateMap<OwnersRequest, Owner>();
+            CreateMap<Owner, OwnerResponse>();
+            CreateMap<OwnerRequest, Owner>();
         }
         
     }

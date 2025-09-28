@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PETiario")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce862b408746e725f3bf396f6215572133837872")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c98db003d42c39747a849d1cd5bb82c090e616a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("PETiario")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PETiario")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
