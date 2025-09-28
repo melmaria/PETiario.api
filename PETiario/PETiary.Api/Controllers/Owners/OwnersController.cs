@@ -16,7 +16,7 @@ namespace PETiario.PETiary.Api.Controllers.Owners
         /// </summary>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateAsync([FromBody] OwnersRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] OwnerRequest request, CancellationToken cancellationToken = default)
         {
             await ownerApplication.CreateAsync(request, cancellationToken);
             return Ok();
@@ -27,7 +27,7 @@ namespace PETiario.PETiary.Api.Controllers.Owners
         /// </summary>
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<ActionResult<OwnersResponse>> UpdateAsync(int id, [FromBody] OwnersRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<OwnerResponse>> UpdateAsync(int id, [FromBody] OwnerRequest request, CancellationToken cancellationToken = default)
         {
             var updated = await ownerApplication.UpdateAsync(id, request, cancellationToken);
             return Ok(updated);
@@ -50,7 +50,7 @@ namespace PETiario.PETiary.Api.Controllers.Owners
         [HttpGet]
         [Authorize]
         [ResponseCache(Duration = 3600)]
-        public async Task<ActionResult<IEnumerable<OwnersResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<OwnerResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var list = await ownerApplication.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -61,7 +61,7 @@ namespace PETiario.PETiary.Api.Controllers.Owners
         /// </summary>
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<OwnersResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<OwnerResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var owner = await ownerApplication.GetByIdAsync(id, cancellationToken);
             return Ok(owner);

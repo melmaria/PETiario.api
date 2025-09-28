@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[9.0.6, )"
             },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.14.1, )"
+            },
             "Scrutor": {
               "target": "Package",
               "version": "[6.1.0, )"
@@ -93,6 +97,16 @@
             "UnitOfWork.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

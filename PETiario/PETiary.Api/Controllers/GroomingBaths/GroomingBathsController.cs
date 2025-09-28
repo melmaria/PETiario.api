@@ -16,7 +16,7 @@ namespace PETiario.PETiary.Api.Controllers.GroomingBaths
         /// </summary>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateAsync([FromBody] GroomingBathsRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] GroomingBathRequest request, CancellationToken cancellationToken = default)
         {
             await groomingBathApplication.CreateAsync(request, cancellationToken);
             return Ok();
@@ -27,7 +27,7 @@ namespace PETiario.PETiary.Api.Controllers.GroomingBaths
         /// </summary>
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<ActionResult<GroomingBathsResponse>> UpdateAsync(int id, [FromBody] GroomingBathsRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<GroomingBathResponse>> UpdateAsync(int id, [FromBody] GroomingBathRequest request, CancellationToken cancellationToken = default)
         {
             var updated = await groomingBathApplication.UpdateAsync(id, request, cancellationToken);
             return Ok(updated);
@@ -50,7 +50,7 @@ namespace PETiario.PETiary.Api.Controllers.GroomingBaths
         [HttpGet]
         [Authorize]
         [ResponseCache(Duration = 3600)]
-        public async Task<ActionResult<IEnumerable<GroomingBathsResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<GroomingBathResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var list = await groomingBathApplication.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -61,7 +61,7 @@ namespace PETiario.PETiary.Api.Controllers.GroomingBaths
         /// </summary>
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<GroomingBathsResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<GroomingBathResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var groomingBaths = await groomingBathApplication.GetByIdAsync(id, cancellationToken);
             return Ok(groomingBaths);

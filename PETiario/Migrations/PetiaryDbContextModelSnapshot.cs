@@ -120,12 +120,12 @@ namespace PETiario.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("IdOwner")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Owner")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Picture")
                         .IsRequired()

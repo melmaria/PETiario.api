@@ -38,7 +38,7 @@ namespace PETiario.PETiary.Application.Pets.Services
             try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id)); 
+                    throw new ArgumentNullException("Pet can not be null.", nameof(id)); 
 
                 var repository = unitOfWork.GetRepository<Pet>();   
                 Pet pet = await repository.FindAsync(id, cancellationToken) 
@@ -64,7 +64,7 @@ namespace PETiario.PETiary.Application.Pets.Services
         public async Task<PetResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             if (id <= 0)
-                throw new ArgumentNullException("Invalid id.", nameof(id));   
+                throw new ArgumentNullException("Pet can not be null.", nameof(id));   
 
             var repository = unitOfWork.GetRepository<Pet>();
             Pet pet = await repository.FindAsync(id, cancellationToken) 
@@ -78,7 +78,7 @@ namespace PETiario.PETiary.Application.Pets.Services
             try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id));
+                    throw new ArgumentNullException("Pet can not be null.", nameof(id));
 
                 var repository = unitOfWork.GetRepository<Pet>();
                 Pet pet = await repository.FindAsync(id, cancellationToken)

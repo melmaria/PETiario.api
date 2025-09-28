@@ -16,7 +16,7 @@ namespace PETiario.PETiary.Api.Controllers.Vaccinations
         /// </summary>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateAsync([FromBody] VaccionationsRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] VaccionationRequest request, CancellationToken cancellationToken = default)
         {
             await vaccinationApplication.CreateAsync(request, cancellationToken);
             return Ok();
@@ -27,7 +27,7 @@ namespace PETiario.PETiary.Api.Controllers.Vaccinations
         /// </summary>
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<ActionResult<VaccinationsResponse>> UpdateAsync(int id, [FromBody] VaccionationsRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<VaccinationResponse>> UpdateAsync(int id, [FromBody] VaccionationRequest request, CancellationToken cancellationToken = default)
         {
             var updated = await vaccinationApplication.UpdateAsync(id, request, cancellationToken);
             return Ok(updated);
@@ -50,7 +50,7 @@ namespace PETiario.PETiary.Api.Controllers.Vaccinations
         [HttpGet]
         [Authorize]
         [ResponseCache(Duration = 3600)]
-        public async Task<ActionResult<IEnumerable<VaccinationsResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<VaccinationResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var list = await vaccinationApplication.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -61,7 +61,7 @@ namespace PETiario.PETiary.Api.Controllers.Vaccinations
         /// </summary>
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<VaccinationsResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<VaccinationResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var vaccination = await vaccinationApplication.GetByIdAsync(id, cancellationToken);
             return Ok(vaccination);

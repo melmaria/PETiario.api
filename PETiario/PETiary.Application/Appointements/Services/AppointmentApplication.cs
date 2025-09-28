@@ -36,7 +36,7 @@ namespace PETiario.PETiary.Application.Appointements.Services
             try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id));
+                    throw new ArgumentNullException("Appointment can not be null.", nameof(id));
 
                 var repository = unitOfWork.GetRepository<Appointment>();
                 Appointment appointment = await repository.FindAsync(id, cancellationToken)
@@ -59,7 +59,7 @@ namespace PETiario.PETiary.Application.Appointements.Services
             try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id)); 
+                    throw new ArgumentNullException("Appointment can not be null.", nameof(id)); 
 
                 var repository = unitOfWork.GetRepository<Appointment>();   
                 Appointment appointment = await repository.FindAsync(id, cancellationToken) 
@@ -85,7 +85,7 @@ namespace PETiario.PETiary.Application.Appointements.Services
         public async Task<AppointmentResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             if (id <= 0)
-                throw new ArgumentNullException("Invalid id.", nameof(id));   
+                throw new ArgumentNullException("Appointment can not be null.", nameof(id));   
 
             var repository = unitOfWork.GetRepository<Appointment>();
             Appointment appointment = await repository.FindAsync(id, cancellationToken) 

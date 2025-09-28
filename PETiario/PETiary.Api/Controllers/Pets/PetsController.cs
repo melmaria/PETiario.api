@@ -16,7 +16,7 @@ namespace PETiario.PETiary.Api.Controllers.Pets
         /// </summary>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateAsync([FromBody] PetsRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] PetRequest request, CancellationToken cancellationToken = default)
         {
             await petApplication.CreateAsync(request, cancellationToken);
             return Ok();
@@ -27,7 +27,7 @@ namespace PETiario.PETiary.Api.Controllers.Pets
         /// </summary>
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<ActionResult<PetsResponse>> UpdateAsync(int id, [FromBody] PetsRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<PetResponse>> UpdateAsync(int id, [FromBody] PetRequest request, CancellationToken cancellationToken = default)
         {
             var updated = await petApplication.UpdateAsync(id, request, cancellationToken);
             return Ok(updated);
@@ -50,7 +50,7 @@ namespace PETiario.PETiary.Api.Controllers.Pets
         [HttpGet]
         [Authorize]
         [ResponseCache(Duration = 3600)]
-        public async Task<ActionResult<IEnumerable<PetsResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<IEnumerable<PetResponse>>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var list = await petApplication.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -61,7 +61,7 @@ namespace PETiario.PETiary.Api.Controllers.Pets
         /// </summary>
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<PetsResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<PetResponse>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var pet = await petApplication.GetByIdAsync(id, cancellationToken);
             return Ok(pet);

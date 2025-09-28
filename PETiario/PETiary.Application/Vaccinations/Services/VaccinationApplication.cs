@@ -38,7 +38,7 @@ namespace PETiario.PETiary.Application.Vaccinations.Services
             try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id)); 
+                    throw new ArgumentNullException("Vaccionation can not be null.", nameof(id)); 
 
                 var repository = unitOfWork.GetRepository<Vaccination>();   
                 Vaccination vaccination = await repository.FindAsync(id, cancellationToken) 
@@ -64,7 +64,7 @@ namespace PETiario.PETiary.Application.Vaccinations.Services
         public async Task<VaccinationResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
            if (id <= 0)
-                throw new ArgumentNullException("Invalid id.", nameof(id));   
+                throw new ArgumentNullException("Vaccionation can not be null.", nameof(id));   
 
             var repository = unitOfWork.GetRepository<Vaccination>();
             Vaccination vaccination = await repository.FindAsync(id, cancellationToken) 
@@ -77,7 +77,7 @@ namespace PETiario.PETiary.Application.Vaccinations.Services
             try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id));
+                    throw new ArgumentNullException("Vaccionation can not be null.", nameof(id));
 
                 var repository = unitOfWork.GetRepository<Vaccination>();
                 Vaccination vaccination = await repository.FindAsync(id, cancellationToken)

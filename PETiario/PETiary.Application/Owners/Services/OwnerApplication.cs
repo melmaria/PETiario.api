@@ -38,7 +38,7 @@ namespace PETiario.PETiary.Application.Owners.Services
            try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id)); 
+                    throw new ArgumentNullException("Owner can not be null.", nameof(id)); 
 
                 var repository = unitOfWork.GetRepository<Owner>();   
                 Owner owner = await repository.FindAsync(id, cancellationToken) 
@@ -64,7 +64,7 @@ namespace PETiario.PETiary.Application.Owners.Services
         public async Task<OwnerResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
            if (id <= 0)
-                throw new ArgumentNullException("Invalid id.", nameof(id));   
+                throw new ArgumentNullException("Owner can not be null.", nameof(id));   
 
             var repository = unitOfWork.GetRepository<Owner>();
             Owner owner = await repository.FindAsync(id, cancellationToken) 
@@ -77,7 +77,7 @@ namespace PETiario.PETiary.Application.Owners.Services
              try
             {
                 if (id <= 0)
-                    throw new ArgumentNullException("Invalid id.", nameof(id));
+                    throw new ArgumentNullException("Owner can not be null.", nameof(id));
 
                 var repository = unitOfWork.GetRepository<Owner>();
                 Owner owner = await repository.FindAsync(id, cancellationToken)
